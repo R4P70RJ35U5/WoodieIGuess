@@ -8,12 +8,14 @@
 class Nerf {
 	public:
 		Nerf(int liftMotor);
-		void ChangeAngle(bool up, bool down); // 13 up, 15 down (theo)
+		void ChangeAngle(int speed);
 		void Fire();
+		void StopFire();
 
 
 	private:
-		WPI_TalonSRX j_nerfGun;
+		WPI_TalonSRX j_angleMotor;
+		DigitalOutput j_Fires;
 
 };
 

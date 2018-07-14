@@ -6,8 +6,11 @@
 #define CONTROLLER_PORT 3
 
 #define TALON_LEFT 0
-#define TALON_RIGHT 1
-#define TALON_NERF 2
+#define TALON_NERF 1
+#define TALON_RIGHT 2
+
+
+#define RELAY_1 5
 
 
 

@@ -10,7 +10,7 @@
 	Woodie::Woodie(void):
 		j_Joystick1(JOYSTICK1_PORT),
 		j_Joystick2(JOYSTICK2_PORT),
-		j_Controller(CONTROLLER_PORT),
+		j_Controller(CONTROLLER_PORT), // Currently a Gamecube COntroller
 		j_diffDrive(TALON_LEFT, TALON_RIGHT),
 		j_nerf1(TALON_NERF),
 		j_leftEncoder(8,9,true),
@@ -69,10 +69,15 @@
 			j_diffDrive.Update(j_Joystick1.GetRawAxis(1), j_Joystick2.GetRawAxis(1));
 		};
 
-		if(j_diffDrive.getDriveType() == 1) {
-			SmartDashboard::PutString("Drive Type:", "Tank Controller");
-			j_diffDrive.Update(j_Controller.GetRawAxis(2), j_Controller.GetRawAxis(1));
-		};
+
+		/*
+		 * Removed because it used the C-stick, which is now used for the gun angle
+		 *
+		 *if(j_diffDrive.getDriveType() == 1) {
+		 *	SmartDashboard::PutString("Drive Type:", "Tank Controller");
+		 *	j_diffDrive.Update(j_Controller.GetRawAxis(1), j_Controller.GetRawAxis(2));
+		 *};
+		 */
 
 		if(j_diffDrive.getDriveType() == 2) {
 			SmartDashboard::PutString("Drive Type:", "Arcade Joystick2");
@@ -84,11 +89,16 @@
 			j_diffDrive.Update(j_Controller.GetRawAxis(1),j_Controller.GetRawAxis(0));
 		};
 
+
 		if(j_Controller.GetRawButton(2)){
 			j_nerf1.Fire();
-
 		}
 
+		if(!j_Controller.GetRawButton(2)){
+			j_nerf1.StopFire();
+		}
+
+		j_nerf1.ChangeAngle(j_Controller.GetRawAxis(2)); // C-Stick for now
 
 
 	}
