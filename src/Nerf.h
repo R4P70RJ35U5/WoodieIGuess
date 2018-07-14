@@ -7,9 +7,9 @@
 
 class Nerf {
 	public:
-		Nerf(void);
-		void changeAngle(bool up, bool down); // 13 up, 15 down (theo)
-		void fire(bool fire);
+		Nerf(int liftMotor);
+		void ChangeAngle(bool up, bool down); // 13 up, 15 down (theo)
+		void Fire();
 
 
 	private:

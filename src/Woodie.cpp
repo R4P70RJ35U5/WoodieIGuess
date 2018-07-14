@@ -2,6 +2,7 @@
 #include <WPILib.h>
 #include <Defs.h>
 #include <DiffDrive.h>
+#include <Nerf.h>
 #include <IterativeRobot.h>
 #include <SmartDashboard/SendableChooser.h>
 #include <SmartDashboard/SmartDashboard.h>
@@ -11,6 +12,7 @@
 		j_Joystick2(JOYSTICK2_PORT),
 		j_Controller(CONTROLLER_PORT),
 		j_diffDrive(TALON_LEFT, TALON_RIGHT),
+		j_nerf1(TALON_NERF),
 		j_leftEncoder(8,9,true),
 		j_rightEncoder(6,7,false)
 		{
@@ -81,6 +83,12 @@
 			SmartDashboard::PutString("Drive Type:", "Arcade Controller");
 			j_diffDrive.Update(j_Controller.GetRawAxis(1),j_Controller.GetRawAxis(0));
 		};
+
+		if(j_Controller.GetRawButton(2)){
+			j_nerf1.Fire();
+
+		}
+
 
 
 	}

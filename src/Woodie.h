@@ -4,6 +4,7 @@
 #include <IterativeRobot.h>
 #include <WPILib.h>
 #include <DiffDrive.h>
+#include <Nerf.h>
 #include <SmartDashboard/SendableChooser.h>
 #include <SmartDashboard/SmartDashboard.h>
 #include "ctre/Phoenix.h"
@@ -36,6 +37,8 @@ class Woodie : public IterativeRobot {
 		Joystick j_Controller; // Slot 3
 
 		DiffDrive j_diffDrive;
+
+		Nerf j_nerf1;
 
 		Encoder j_leftEncoder;
 		Encoder j_rightEncoder;

@@ -4,17 +4,17 @@
 #include <Defs.h>
 #include "ctre/Phoenix.h"
 
-	Nerf::Nerf():
-		j_nerfGun(TALON_NERF)
+	Nerf::Nerf(int liftMotor):
+		j_nerfGun(liftMotor)
 		{
 
 		}
-	void Nerf::changeAngle(bool up, bool down){
+	void Nerf::ChangeAngle(bool up, bool down){
 
 
 		}
 
-	void Nerf::fire(bool fire){
+	void Nerf::Fire(){
 
 
 		}
