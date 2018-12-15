@@ -10,9 +10,8 @@
 	Woodie::Woodie(void):
 		j_Joystick1(JOYSTICK1_PORT),
 		j_Joystick2(JOYSTICK2_PORT),
-		j_Controller(CONTROLLER_PORT), // Currently a Gamecube COntroller
-		j_diffDrive(TALON_LEFT, TALON_RIGHT),
-		j_nerf1(TALON_NERF),
+		j_Controller(GAMEPAD_PORT), // Currently a Gamecube COntroller
+		j_diffDrive(LEFT_DRIVE_TALON_ONE, LEFT_DRIVE_TALON_TWO, LEFT_DRIVE_TALON_THREE, RIGHT_DRIVE_TALON_ONE, RIGHT_DRIVE_TALON_TWO, RIGHT_DRIVE_TALON_THREE),
 		j_leftEncoder(8,9,true),
 		j_rightEncoder(6,7,false)
 		{
@@ -89,7 +88,7 @@
 			j_diffDrive.Update(j_Controller.GetRawAxis(1),j_Controller.GetRawAxis(0));
 		};
 
-
+/*
 		if(j_Controller.GetRawButton(2)){
 			j_nerf1.Fire();
 		}
@@ -100,7 +99,7 @@
 
 		j_nerf1.ChangeAngle(j_Controller.GetRawAxis(2)); // C-Stick for now
 
-
+*/
 	}
 
 	void  Woodie::TestInit() { }

@@ -38,7 +38,6 @@ class Woodie : public IterativeRobot {
 
 		DiffDrive j_diffDrive;
 
-		Nerf j_nerf1;
 
 		Encoder j_leftEncoder;
 		Encoder j_rightEncoder;

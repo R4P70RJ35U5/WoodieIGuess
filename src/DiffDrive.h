@@ -6,7 +6,7 @@
 
 class DiffDrive {
 	public:
-		DiffDrive(int leftDrive, int rightDrive);
+		DiffDrive(int leftDriveOne, int leftDriveTwo, int leftDriveThree, int rightDriveOne, int rightDriveTwo, int rightDriveThree);
 		void Init();
 		void setDriveType(int type);
 		int getDriveType();
@@ -14,9 +14,15 @@ class DiffDrive {
 
 
 	private:
-		WPI_TalonSRX j_leftDrive;
-		WPI_TalonSRX j_rightDrive;
-		DifferentialDrive j_driveTrain;
+		WPI_TalonSRX a_leftDriveOne;
+		WPI_TalonSRX a_leftDriveTwo;
+		WPI_TalonSRX a_leftDriveThree;
+
+		WPI_TalonSRX a_rightDriveOne;
+		WPI_TalonSRX a_rightDriveTwo;
+		WPI_TalonSRX a_rightDriveThree;
+
+		DifferentialDrive a_Drivetrain;
 		int driveType;
 
 };
